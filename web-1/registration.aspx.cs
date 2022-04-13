@@ -23,5 +23,15 @@ namespace web_1
         {
 
         }
+
+        protected void CheckBox3_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void TextBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
