@@ -34,10 +34,28 @@
         .auto-style8 {
             height: 29px;
         }
+        body{width:50px;
+        background-color:#c9e5ed;
+        }
+        form{
+
+        background-color:#f0f5f4;
+        margin-top: 300px;
+        margin-bottom: 100px;
+        margin-right: 150px;
+        margin-left: 500px;
+        width:80px;
+        }
+
+        .auto-style9 {
+            width: 467px;
+            height: 305px;
+        }
+
     </style>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" class="auto-style9">
         <div>
             <table class="auto-style1">
                 <tr>
@@ -99,13 +117,13 @@
                         <asp:TextBox ID="password" runat="server" OnTextChanged="TextBox6_TextChanged" TextMode="Password"></asp:TextBox>
                         <asp:CheckBox runat="server" onclick="showpass(this);" Text="show password" />
                     <script type="text/javascript">
-                function showpass(check_box) {
-                    var spass = document.getElementById("password");
-                    if (check_box.checked)
-                        spass.setAttribute("type", "text");
-                    else
-                        spass.setAttribute("type", "password");
-                }
+                          function showpass(check_box) {
+                          var spass = document.getElementById("password");
+                          if (check_box.checked)
+                          spass.setAttribute("type", "text");
+                          else
+                          spass.setAttribute("type", "password");
+                          }
                     </script>
                         </td>
                     <td class="auto-style6">&nbsp;</td>
@@ -120,6 +138,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style5">
+                        <asp:Button ID="Button1" runat="server" Font-Bold="True" Font-Italic="False" Font-Overline="False" Font-Size="Large" Font-Strikeout="False" ForeColor="Blue" Height="38px" OnClick="Button1_Click" Text="submit" Width="120px" />
                     </td>
                     <td class="auto-style6"></td>
                     <td class="auto-style6"></td>
@@ -127,8 +146,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style5">
-                        <asp:Button ID="Button1" runat="server" Font-Bold="True" Font-Italic="False" Font-Overline="False" Font-Size="Large" Font-Strikeout="False" ForeColor="Blue" Height="38px" OnClick="Button1_Click" Text="submit" Width="120px" />
-                    </td>
+                        &nbsp;</td>
                     <td class="auto-style6">&nbsp;</td>
                     <td class="auto-style6">&nbsp;</td>
                     <td class="auto-style6">&nbsp;</td>
