@@ -32,7 +32,14 @@
         width:80px;
         }
         .auto-style5 {
-            width: 384px;
+            width: 624px;
+        }
+        .auto-style6 {
+            width: 163px;
+            height: 29px;
+        }
+        .auto-style7 {
+            height: 29px;
         }
     </style>
 </head>
@@ -46,14 +53,16 @@
                     </td>
                     <td>
                         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="TextBox1" ErrorMessage="username is required"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">
+                    <td class="auto-style6">
                         <asp:Label ID="Label2" runat="server" Text="password"></asp:Label>
                     </td>
-                    <td>
+                    <td class="auto-style7">
                         <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextBox2" ErrorMessage="password is required"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
