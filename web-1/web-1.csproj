@@ -67,22 +67,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="baby care.jpg" />
-    <Content Include="beauty.jpg" />
+    <Content Include="ABOUT-US.html" />
+    <Content Include="App_Data\pharmacy.mdf" />
+    <Content Include="App_Data\pharmacy_log.ldf">
+      <DependentUpon>pharmacy.mdf</DependentUpon>
+    </Content>
+    <Content Include="photos\50-Beautiful-and-Minimalist-Presentation-Backgrounds-013.jpg" />
+    <Content Include="photos\baby care.jpg" />
+    <Content Include="photos\beauty.jpg" />
     <Content Include="CATEGORIES.aspx" />
     <Content Include="contactUS.html" />
-    <Content Include="download.png" />
-    <Content Include="general use.jpg" />
-    <Content Include="hair care.jpg" />
+    <Content Include="photos\download.png" />
+    <Content Include="photos\general use.jpg" />
+    <Content Include="photos\hair care.jpg" />
     <Content Include="home.html" />
-    <Content Include="medical supplies.jpg" />
-    <Content Include="MEDICATONS.jpg" />
-    <Content Include="nBAR.html" />
-    <Content Include="perfumes.jpg" />
-    <Content Include="personal care.jpg" />
+    <Content Include="photos\medical supplies.jpg" />
+    <Content Include="photos\MEDICATONS.jpg" />
+    <Content Include="photos\perfumes.jpg" />
+    <Content Include="photos\personal care.jpg" />
+    <Content Include="photos\pills-pharmacy-wallpaper-preview.jpg" />
+    <Content Include="photos\rm373batch15-217-01.jpg" />
     <Content Include="registration.aspx" />
     <Content Include="SIGN-IN.aspx" />
-    <Content Include="skin-care.jpg" />
+    <Content Include="photos\skin-care.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

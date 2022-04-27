@@ -1,16 +1,106 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title></title>
-    <FRAMESET ROWS="10%,70%,*" noresize border="0">
-        <frame style="background-color: #f0f5f4;" name="F1" src="nBAR.html" noresize border="0" />
-        <frame style="background-color: #c9e5ed;" name="F2" src="" noresize border="0" />
-        <frame style="background-color: #ff6a00 ;" name="F3" src="" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif
+        }
 
-        </frame>
+        * {
+            box-sizing: border-box;
+        }
+
+        .bg-img {
+            /* The image used */
+            background-image: url("photos/pills-pharmacy-wallpaper-preview.jpg");
+            min-height: 600px;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* Needed to position the navbar */
+            position: relative;
+        }
+
+        /* Position the navbar container inside the image */
+        .container {
+            position: absolute;
+            margin: 20px;
+            width: auto;
+        }
+
+        /* The navbar */
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+            /* Navbar links */
+            .topnav a {
+                float: left;
+                color: gray;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+                .topnav a:hover {
+                    background-color: #ddd;
+                    color: black;
+                }
+
+
+
+
+        .tofoter {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+            .tofoter a {
+                float: right;
+                color: gray;
+                text-align: right;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+        .footer {
+            position: fixed;
+            left: 10;
+            bottom: 0;
+            width: 99.10%;
+            height: 6%;
+            background-color: gray;
+            color: white;
+            text-align: center;
+            text-decoration: solid;
+            text-decoration-color: initial;
+        }
+    </style>
 </head>
 <body>
+    <h1>PHARMACY</h1>
+    <div class="bg-img">
+        <div class="container">
+            <div class="topnav">
+                <a href="home.html">Home</a>
+                <a href="CATEGORIES.aspx"> Categories</a>
+                <a href="registration.aspx">sign up</a>
+                <a href="SIGN-IN.aspx">sign in</a>
+                <a href="ABOUT-US.html">about us</a>
 
+            </div>
+        </div>
+        <div class="footer">
+            <div class="tofoter">
+                <a href="contactUS.html">contact us </a>
+            </div>
+        </div>
+
+    </div>
 </body>
 </html>

@@ -1,6 +1,25 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="registration.aspx.cs" Inherits="web_1.registration" %>
+<%@ Import Namespace="System.Data.SqlClient"%>
 
 <!DOCTYPE html>
+<script runat="server">
+
+ 
+   protected void Button1_Click(object sender, EventArgs e)
+    {
+        SqlConnection conn = new SqlConnection();
+        conn.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|pharmacy.mdf;Integrated Security=True";
+        string strInsert = String.Format("INSERT INTO customer VALUES('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}')", TextBox1.Text, TextBox2.Text, CheckBoxList1.SelectedValue, TextBox4.Text, TextBox5.Text, textbox6.Text, password.Text, password0.Text);
+        SqlCommand cmdInsert = new SqlCommand(strInsert, conn);
+        conn.Open();
+        cmdInsert.ExecuteNonQuery();
+        conn.Close();
+        lblmsg.Text = " your account " + TextBox1.Text + " " + TextBox2.Text + " has been succsesfully created";
+    }
+
+
+
+</script>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -36,20 +55,20 @@
             height: 29px;
         }
         body{width:50px;
-        background-color:#c9e5ed;
+        background-image:url("photos/50-Beautiful-and-Minimalist-Presentation-Backgrounds-013.jpg");
         }
         form{
 
-        background-color:#f0f5f4;
-        margin-top: 300px;
+        background-color:transparent;
+        margin-top: 100px;
         margin-bottom: 100px;
         margin-right: 150px;
-        margin-left: 500px;
-        width:80px;
+        margin-left: 150px;
+        width:200px;
         }
 
         .auto-style9 {
-            width: 609px;
+            width: 967px;
             height: 487px;
         }
 
@@ -87,6 +106,8 @@
                         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                     </td>
                     <td class="auto-style14">
+                        &nbsp;</td>
+                    <td class="auto-style14">
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="first name is required"></asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style10">
@@ -101,6 +122,8 @@
                         <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
                     </td>
                     <td class="auto-style2">
+                        &nbsp;</td>
+                    <td class="auto-style2">
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox2" ErrorMessage="last name is required"></asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style11">
@@ -112,9 +135,12 @@
                         <asp:Label ID="Label3" runat="server" Text="sex"></asp:Label>
                     </td>
                     <td class="auto-style2">
-                        <asp:CheckBox ID="CheckBox1" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="male" />
-                        <asp:CheckBox ID="CheckBox2" runat="server" Text="female" />
+                        <asp:CheckBoxList ID="CheckBoxList1" runat="server" RepeatDirection="Horizontal">
+                            <asp:ListItem Value="M">MALE</asp:ListItem>
+                            <asp:ListItem Value="F">FEMALE</asp:ListItem>
+                        </asp:CheckBoxList>
                     </td>
+                    <td class="auto-style2">&nbsp;</td>
                     <td class="auto-style2"></td>
                     <td class="auto-style11"></td>
                 </tr>
@@ -126,8 +152,9 @@
                         <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
                     </td>
                     <td class="auto-style8">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox4" ErrorMessage="phone number is required"></asp:RequiredFieldValidator>
-                    </td>
+                        &nbsp;</td>
+                    <td class="auto-style8">
+                        &nbsp;</td>
                     <td class="auto-style12">
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="TextBox4" ErrorMessage="invalid" ValidationExpression="^[1-9]\d{2}-\d{3}-\d{4}"></asp:RegularExpressionValidator>
                     </td>
@@ -139,6 +166,8 @@
                     <td class="auto-style6">
                         <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
                     </td>
+                    <td class="auto-style6">
+                        &nbsp;</td>
                     <td class="auto-style6">
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox5" ErrorMessage="email address is required"></asp:RequiredFieldValidator>
                     </td>
@@ -163,6 +192,8 @@
                         <asp:TextBox ID="textbox6" runat="server" OnTextChanged="TextBox6_TextChanged"></asp:TextBox>
                         </td>
                     <td class="auto-style6">
+                        &nbsp;</td>
+                    <td class="auto-style6">
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="textbox6" ErrorMessage="username is required"></asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style13">
@@ -177,6 +208,9 @@
                         <asp:TextBox ID="password" runat="server" OnTextChanged="TextBox6_TextChanged" TextMode="Password"></asp:TextBox>
                         </td>
                     <td class="auto-style6">
+                        <asp:CheckBox runat="server" onclick="showpass(this);" Text="show password" />
+                    </td>
+                    <td class="auto-style6">
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="password" ErrorMessage="password is required"></asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style13">
@@ -185,20 +219,33 @@
                 </tr>
                 <tr>
                     <td class="auto-style5">
-                        <asp:Button ID="Button1" runat="server" Font-Bold="True" Font-Italic="False" Font-Overline="False" Font-Size="Large" Font-Strikeout="False" ForeColor="Blue" Height="38px" OnClick="Button1_Click" Text="submit" Width="120px" />
+                        <asp:Label ID="Label9" runat="server" Text="re-Type password"></asp:Label>
                     </td>
                     <td class="auto-style6">
-                        <asp:CheckBox runat="server" onclick="showpass(this);" Text="show password" />
+                        <asp:TextBox ID="password0" runat="server" OnTextChanged="TextBox6_TextChanged" TextMode="Password">retype</asp:TextBox>
                     </td>
                     <td class="auto-style6"></td>
-                    <td class="auto-style13"></td>
+                    <td class="auto-style6">
+                        <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="password" ControlToValidate="password0" ErrorMessage="password dont match"></asp:CompareValidator>
+                    </td>
+                    <td class="auto-style13">
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ControlToValidate="password0" ErrorMessage="invalid" ValidationExpression="\w{8,16}"></asp:RegularExpressionValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style5">
                         &nbsp;</td>
+                    <td class="auto-style6">
+                        <asp:Button ID="Button1" runat="server" Font-Bold="True" Font-Italic="True" Font-Overline="False" Font-Size="Large" Font-Strikeout="False" ForeColor="#003300" Height="38px" OnClick="Button1_Click" Text="SIGN UP" Width="120px" BackColor="White" />
+                    </td>
                     <td class="auto-style6">&nbsp;</td>
                     <td class="auto-style6">&nbsp;</td>
                     <td class="auto-style13">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style6" colspan="5">
+                        <asp:Label ID="lblmsg" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium"></asp:Label>
+                    </td>
                 </tr>
             </table>
         </div>

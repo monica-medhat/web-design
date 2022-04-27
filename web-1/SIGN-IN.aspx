@@ -19,17 +19,17 @@
         .auto-style4 {
             height: 26px;
         } 
+    
         body{width:50px;
-        background-color:#c9e5ed;
+        background-image:url("photos/50-Beautiful-and-Minimalist-Presentation-Backgrounds-013.jpg");
         }
         form{
-
-        background-color:#f0f5f4;
+        background-color:transparent;
         margin-top: 300px;
-        margin-bottom: 100px;
-        margin-right: 150px;
-        margin-left: 500px;
-        width:80px;
+        margin-bottom: 300px;
+        margin-right: 300px;
+        margin-left: 300px;
+        width:200px;
         }
         .auto-style5 {
             width: 624px;
@@ -75,7 +75,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style2">
-                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="sign in" />
+                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="sign in" Font-Bold="True" Font-Italic="True" Font-Size="Medium" />
                     </td>
                     <td>&nbsp;</td>
                 </tr>
